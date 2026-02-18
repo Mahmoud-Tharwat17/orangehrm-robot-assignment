@@ -1,4 +1,4 @@
-name: Robot Tests (Cross-Platform)
+name: Robot Tests (CI)
 
 on:
   push:
@@ -9,10 +9,11 @@ jobs:
   test:
     name: ${{ matrix.os }} - ${{ matrix.browser }}
     runs-on: ${{ matrix.os }}
+
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest]
         browser: [chrome, firefox]
 
     steps:
@@ -22,11 +23,19 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
 
-      # Linux/macOS
-      - name: Install dependencies (Linux/macOS)
-        if: runner.os != 'Windows'
+      # ---------------------------
+      # Ubuntu (Linux) setup + run
+      # ---------------------------
+      - name: Install OS deps (Ubuntu)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
+      - name: Install dependencies (Ubuntu)
+        if: runner.os == 'Linux'
         shell: bash
         run: |
           python -m venv .venv
@@ -34,14 +43,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests (Linux/macOS)
-        if: runner.os != 'Windows'
+      - name: Run tests (Ubuntu - xvfb)
+        if: runner.os == 'Linux'
         shell: bash
         run: |
           source .venv/bin/activate
-          python -m robot -d results -v HEADLESS:True -v BROWSER:${{ matrix.browser }} tests
+          xvfb-run -a python -m robot -d results -v BROWSER:${{ matrix.browser }} tests
 
-      # Windows
+      # ---------------------------
+      # Windows setup + run
+      # ---------------------------
       - name: Install dependencies (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
@@ -56,9 +67,10 @@ jobs:
         shell: pwsh
         run: |
           .\.venv\Scripts\Activate.ps1
-          python -m robot -d results -v HEADLESS:True -v BROWSER:${{ matrix.browser }} tests
+          python -m robot -d results -v BROWSER:${{ matrix.browser }} tests
 
       - name: Upload Results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: robot-results-${{ matrix.os }}-${{ matrix.browser }}

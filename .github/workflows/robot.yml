@@ -1,4 +1,4 @@
-name: Robot Tests (CI)
+name: Robot Tests (Windows - Chrome)
 
 on:
   push:
@@ -7,14 +7,7 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.os }} - ${{ matrix.browser }}
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        browser: [chrome, firefox]
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -24,37 +17,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      # ---------------------------
-      # Ubuntu (Linux) setup + run
-      # ---------------------------
-      - name: Install OS deps (Ubuntu)
-        if: runner.os == 'Linux'
-        shell: bash
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb
-
-      - name: Install dependencies (Ubuntu)
-        if: runner.os == 'Linux'
-        shell: bash
-        run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run tests (Ubuntu - xvfb)
-        if: runner.os == 'Linux'
-        shell: bash
-        run: |
-          source .venv/bin/activate
-          xvfb-run -a python -m robot -d results -v BROWSER:${{ matrix.browser }} tests
-
-      # ---------------------------
-      # Windows setup + run
-      # ---------------------------
-      - name: Install dependencies (Windows)
-        if: runner.os == 'Windows'
+      - name: Install dependencies
         shell: pwsh
         run: |
           python -m venv .venv
@@ -62,16 +25,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests (Windows)
-        if: runner.os == 'Windows'
+      - name: Run tests (Chrome)
         shell: pwsh
         run: |
           .\.venv\Scripts\Activate.ps1
-          python -m robot -d results -v BROWSER:${{ matrix.browser }} tests
+          python -m robot -d results -v BROWSER:chrome tests
 
       - name: Upload Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: robot-results-${{ matrix.os }}-${{ matrix.browser }}
+          name: robot-results-windows-chrome
           path: results

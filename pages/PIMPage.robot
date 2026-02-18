@@ -39,5 +39,5 @@ Verify Employee Exists In List
     [Arguments]    ${emp_id}
     ${locator}=    Replace String    ${target_employee_tpl}    %EMP_ID%    ${emp_id}
     Page Should Contain Element    ${locator}
-    Sleep    2S
+    Sleep    5S
 

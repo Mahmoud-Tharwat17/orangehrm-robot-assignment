@@ -1,0 +1,3407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2026-02-18T02:10:36.549165" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\Mahmoud tharwat\Desktop\task\orangehrm-robot-full-assignment-fixed-v4.8\tests">
+<suite id="s1-s1" name="Orangehrm Assignment" source="C:\Users\Mahmoud tharwat\Desktop\task\orangehrm-robot-full-assignment-fixed-v4.8\tests\orangehrm_assignment.robot">
+<kw name="Open App" owner="common" type="SETUP">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-18T02:10:36.752287" level="INFO">${browser} = chrome</msg>
+<var>${browser}</var>
+<arg>${BROWSER}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.752287" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-18T02:10:36.752287" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.752287" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${browser}'=='chrome'">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-18T02:10:36.753286" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000024422461850&gt;</msg>
+<var>${options}</var>
+<arg>__import__('selenium.webdriver').webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.753286" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${headless}'=='True' or '${headless}'=='true'</arg>
+<arg>Call Method</arg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.753286" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.753286" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.754282" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.754282" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.754282" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:36.754282" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-18T02:10:36.754282" elapsed="6.260865"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:36.753286" elapsed="6.261861"/>
+</branch>
+<branch type="ELSE IF" condition="'${browser}'=='firefox'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${options}</var>
+<arg>__import__('selenium.webdriver').webdriver.FirefoxOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:43.015147" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${headless}'=='True' or '${headless}'=='true'</arg>
+<arg>Call Method</arg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>-headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:43.016147" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>firefox</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:43.016147" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:10:43.015147" elapsed="0.001000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:43.016147" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:10:43.016147" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:10:36.753286" elapsed="6.262861"/>
+</if>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-18T02:10:43.016147" elapsed="0.036083"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SEL_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-02-18T02:10:43.052230" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:36.751249" elapsed="6.300981"/>
+</kw>
+<test id="s1-s1-t1" name="TC01 Create Employee in PIM [smoke]" line="18">
+<kw name="Login As" owner="LoginPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_USER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:43.053232" elapsed="1.257768"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:44.312008" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
+<arg>${LOGIN_USER}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:44.311000" elapsed="0.068804"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:44.380847" level="INFO">Typing password into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2026-02-18T02:10:44.408651" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOGIN_PASS}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:44.379804" elapsed="0.073809"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:44.454612" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:44.453613" elapsed="0.069444"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USER_DROPDOWN}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:44.523057" elapsed="4.121046"/>
+</kw>
+<arg>${ADMIN_USER}</arg>
+<arg>${ADMIN_PASS}</arg>
+<status status="PASS" start="2026-02-18T02:10:43.053232" elapsed="5.591872"/>
+</kw>
+<kw name="Go To PIM" owner="SideMenu">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:48.646111" elapsed="0.017528"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:10:48.663639" elapsed="0.019921"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:10:48.683560" elapsed="0.301270"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:48.984830" level="INFO">Clicking element 'xpath=//span[normalize-space(.)='PIM']/ancestor::a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:48.984830" elapsed="3.533045"/>
+</kw>
+<msg time="2026-02-18T02:10:52.517875" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:10:48.984830" elapsed="3.533045"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:52.517875" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:52.517875" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:10:52.517875" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:10:52.517875" elapsed="0.000999"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:10:52.819158" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.518874" elapsed="0.300284"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.819158" elapsed="0.008933"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:52.518874" elapsed="0.309217"/>
+</kw>
+<arg>${MENU_PIM}</arg>
+<status status="PASS" start="2026-02-18T02:10:48.645104" elapsed="4.182987"/>
+</kw>
+<kw name="Wait Until URL Contains" owner="common">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:52.832601" level="INFO">Current location contains '/pim'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.829093" elapsed="0.003508"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Location Should Contain</arg>
+<arg>${partial}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.828091" elapsed="0.004510"/>
+</kw>
+<arg>/pim</arg>
+<status status="PASS" start="2026-02-18T02:10:52.828091" elapsed="0.004510"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:48.645104" elapsed="4.187497"/>
+</kw>
+<kw name="Generate Unique" owner="common">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T02:10:52.833601" level="INFO">${rand} = rMR86j</msg>
+<var>${rand}</var>
+<arg>6</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.833601" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-02-18T02:10:52.833601" level="INFO">${value} = First_rMR86j</msg>
+<var>${value}</var>
+<arg>SEPARATOR=_</arg>
+<arg>${prefix}</arg>
+<arg>${rand}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.833601" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${value}</value>
+<status status="PASS" start="2026-02-18T02:10:52.833601" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-18T02:10:52.834601" level="INFO">${first} = First_rMR86j</msg>
+<var>${first}</var>
+<arg>First</arg>
+<status status="PASS" start="2026-02-18T02:10:52.833601" elapsed="0.001000"/>
+</kw>
+<kw name="Generate Unique" owner="common">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T02:10:52.834601" level="INFO">${rand} = IgfCJB</msg>
+<var>${rand}</var>
+<arg>6</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.834601" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-02-18T02:10:52.834601" level="INFO">${value} = Last_IgfCJB</msg>
+<var>${value}</var>
+<arg>SEPARATOR=_</arg>
+<arg>${prefix}</arg>
+<arg>${rand}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.834601" elapsed="0.001000"/>
+</kw>
+<return>
+<value>${value}</value>
+<status status="PASS" start="2026-02-18T02:10:52.835601" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-18T02:10:52.835601" level="INFO">${last} = Last_IgfCJB</msg>
+<var>${last}</var>
+<arg>Last</arg>
+<status status="PASS" start="2026-02-18T02:10:52.834601" elapsed="0.001000"/>
+</kw>
+<kw name="Create Employee" owner="PIMPage">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space(.)="PIM"]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:10:52.835601" elapsed="0.641082"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PIM_ADD_BTN}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.477683" elapsed="0.014257"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.492945" elapsed="0.018214"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.511159" elapsed="0.015793"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.526952" elapsed="0.279735"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:53.806687" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='Add']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.806687" elapsed="2.545343"/>
+</kw>
+<msg time="2026-02-18T02:10:56.352030" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:10:53.806687" elapsed="2.545343"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:56.352030" elapsed="0.001000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:56.353030" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:10:56.352030" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:10:56.352030" elapsed="0.001000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:10:56.653138" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:10:56.353030" elapsed="0.300108"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:10:56.653138" elapsed="0.005605"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:56.353030" elapsed="0.305713"/>
+</kw>
+<arg>${PIM_ADD_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:10:53.492945" elapsed="3.165798"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMP_FIRSTNAME}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:56.658743" elapsed="1.045790"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:57.704533" level="INFO">Typing text 'First_rMR86j' into text field 'xpath=//input[@name='firstName']'.</msg>
+<arg>${EMP_FIRSTNAME}</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.704533" elapsed="0.084494"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:57.789027" level="INFO">Typing text 'Last_IgfCJB' into text field 'xpath=//input[@name='lastName']'.</msg>
+<arg>${EMP_LASTNAME}</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.789027" elapsed="0.071623"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:57.876711" level="INFO">${emp_id} = 0373</msg>
+<var>${emp_id}</var>
+<arg>${EMP_ID}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.861673" elapsed="0.015038"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.877709" elapsed="0.017142"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.894851" elapsed="0.021133"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:10:57.915984" elapsed="0.276574"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:10:58.193555" level="INFO">Clicking element 'xpath=//button[@type='submit' and normalize-space(.)='Save']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:10:58.192558" elapsed="0.816362"/>
+</kw>
+<msg time="2026-02-18T02:10:59.008920" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:10:58.192558" elapsed="0.816362"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:59.008920" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:10:59.009926" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:10:59.008920" elapsed="0.001006"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:10:59.008920" elapsed="0.001006"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:10:59.311298" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:10:59.009926" elapsed="0.301372"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:10:59.311298" elapsed="0.005613"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:59.009926" elapsed="0.306985"/>
+</kw>
+<arg>${SAVE_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:10:57.876711" elapsed="1.440200"/>
+</kw>
+<kw name="Wait For Toast Success" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TOAST}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:10:59.317884" elapsed="2.354198"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TOAST_SUCCESS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.672082" elapsed="0.012324"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:10:59.317884" elapsed="2.368031"/>
+</kw>
+<return>
+<value>${emp_id}</value>
+<status status="PASS" start="2026-02-18T02:11:01.685915" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-18T02:11:01.685915" level="INFO">${emp_id} = 0373</msg>
+<var>${emp_id}</var>
+<arg>${first}</arg>
+<arg>${last}</arg>
+<status status="PASS" start="2026-02-18T02:10:52.835601" elapsed="8.850314"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-02-18T02:11:01.686954" level="INFO">${CREATED_EMP_ID} = 0373</msg>
+<arg>${CREATED_EMP_ID}</arg>
+<arg>${emp_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.685915" elapsed="0.001039"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-02-18T02:11:01.686954" level="INFO">${CREATED_EMP_NAME} = First_rMR86j Last_IgfCJB</msg>
+<arg>${CREATED_EMP_NAME}</arg>
+<arg>${first} ${last}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.686954" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-18T02:11:01.687922" level="INFO">Length is 4.</msg>
+<arg>${CREATED_EMP_ID}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.686954" elapsed="0.000968"/>
+</kw>
+<kw name="Capture Screenshot On Failure" owner="common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.687922" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:01.687922" elapsed="0.002171"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2026-02-18T02:10:43.053232" elapsed="18.636861"/>
+</test>
+<test id="s1-s1-t2" name="TC02 Search For Created Employee [regression]" line="29">
+<kw name="Go To PIM" owner="SideMenu">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.692108" elapsed="0.011495"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.703603" elapsed="0.017550"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.721153" elapsed="0.269788"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:01.991947" level="INFO">Clicking element 'xpath=//span[normalize-space(.)='PIM']/ancestor::a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.991947" elapsed="3.781946"/>
+</kw>
+<msg time="2026-02-18T02:11:05.773893" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:01.991947" elapsed="3.781946"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:05.774895" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:05.774895" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:05.773893" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:05.773893" elapsed="0.001002"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:06.076344" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:05.775893" elapsed="0.300451"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:06.076344" elapsed="0.005519"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:05.774895" elapsed="0.306968"/>
+</kw>
+<arg>${MENU_PIM}</arg>
+<status status="PASS" start="2026-02-18T02:11:01.691101" elapsed="4.390762"/>
+</kw>
+<kw name="Wait Until URL Contains" owner="common">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:06.084863" level="INFO">Current location contains '/pim'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-02-18T02:11:06.081863" elapsed="0.003000"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Location Should Contain</arg>
+<arg>${partial}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-18T02:11:06.081863" elapsed="0.003000"/>
+</kw>
+<arg>/pim</arg>
+<status status="PASS" start="2026-02-18T02:11:06.081863" elapsed="0.003000"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:01.691101" elapsed="4.393762"/>
+</kw>
+<kw name="Open Employee List" owner="PIMPage">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space(.)="PIM"]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:06.085868" elapsed="1.041891"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PIM_EMP_LIST_TAB}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.127759" elapsed="0.015143"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.143901" elapsed="0.011017"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.154918" elapsed="0.012653"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.167571" elapsed="0.276006"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:07.444578" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Employee List']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.444578" elapsed="1.919477"/>
+</kw>
+<msg time="2026-02-18T02:11:09.364055" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:07.444578" elapsed="1.919477"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:09.364055" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:09.365561" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:09.364055" elapsed="0.001506"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:09.364055" elapsed="0.001506"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:09.666001" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:09.365561" elapsed="0.300440"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:09.666001" elapsed="0.024932"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:09.365561" elapsed="0.325372"/>
+</kw>
+<arg>${PIM_EMP_LIST_TAB}</arg>
+<status status="PASS" start="2026-02-18T02:11:07.143901" elapsed="2.547032"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMP_SEARCH_ID}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:09.690933" elapsed="1.451068"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:06.085868" elapsed="5.056133"/>
+</kw>
+<kw name="Search Employee By Id" owner="PIMPage">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${EMP_SEARCH_ID}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.143006" elapsed="0.029188"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:11.172194" level="INFO">Typing text '0373' into text field 'xpath=//label[normalize-space(.)='Employee Id']/parent::div/following::div//input'.</msg>
+<arg>${EMP_SEARCH_ID}</arg>
+<arg>${emp_id}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.172194" elapsed="0.068652"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.240846" elapsed="0.018738"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.259584" elapsed="0.016097"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.276682" elapsed="0.280866"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:11.558554" level="INFO">Clicking element 'xpath=//button[@type='submit' and normalize-space(.)='Search']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.558554" elapsed="0.051350"/>
+</kw>
+<msg time="2026-02-18T02:11:11.609904" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.558554" elapsed="0.051350"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:11.609904" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:11.609904" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:11.609904" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:11.609904" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:11.911634" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.611112" elapsed="0.300522"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.911634" elapsed="0.005005"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:11.611112" elapsed="0.305527"/>
+</kw>
+<arg>${SEARCH_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:11:11.240846" elapsed="0.676793"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMP_TABLE_BODY}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:11.917639" elapsed="1.249378"/>
+</kw>
+<arg>${CREATED_EMP_ID}</arg>
+<status status="PASS" start="2026-02-18T02:11:11.142001" elapsed="2.025016"/>
+</kw>
+<kw name="Verify Employee Exists In List" owner="PIMPage">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:13.177670" level="INFO">Current page contains element 'xpath=//div[contains(@class,'oxd-table-body')]//*[contains(normalize-space(.),'0373')]'.</msg>
+<arg>xpath=//div[contains(@class,'oxd-table-body')]//*[contains(normalize-space(.),'${emp_id}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:13.168017" elapsed="0.009653"/>
+</kw>
+<arg>${CREATED_EMP_ID}</arg>
+<status status="PASS" start="2026-02-18T02:11:13.168017" elapsed="0.009653"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:23.179064" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:13.178677" elapsed="10.000387"/>
+</kw>
+<kw name="Capture Screenshot On Failure" owner="common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.181111" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:23.180592" elapsed="0.000519"/>
+</kw>
+<tag>regression</tag>
+<status status="PASS" start="2026-02-18T02:11:01.691101" elapsed="21.491028"/>
+</test>
+<test id="s1-s1-t3" name="TC03 Create Vacancy In Recruitment [smoke]" line="37">
+<kw name="Go To Recruitment" owner="SideMenu">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.184515" elapsed="0.023044"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.207559" elapsed="0.022074"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.229633" elapsed="0.282989"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:23.513619" level="INFO">Clicking element 'xpath=//span[normalize-space(.)='Recruitment']/ancestor::a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.512622" elapsed="1.729175"/>
+</kw>
+<msg time="2026-02-18T02:11:25.241797" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:23.512622" elapsed="1.729175"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:25.242797" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:25.242797" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:25.242797" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:25.242797" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:25.546383" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:25.244807" elapsed="0.301576"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:25.546383" elapsed="0.006129"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:25.243809" elapsed="0.309703"/>
+</kw>
+<arg>${MENU_RECRUIT}</arg>
+<status status="PASS" start="2026-02-18T02:11:23.184515" elapsed="2.368997"/>
+</kw>
+<kw name="Wait Until URL Contains" owner="common">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:25.558544" level="INFO">Current location contains '/recruitment'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-02-18T02:11:25.554511" elapsed="0.004033"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Location Should Contain</arg>
+<arg>${partial}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-18T02:11:25.553512" elapsed="0.005032"/>
+</kw>
+<arg>/recruitment</arg>
+<status status="PASS" start="2026-02-18T02:11:25.553512" elapsed="0.005032"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:23.184515" elapsed="2.374029"/>
+</kw>
+<kw name="Open Vacancies" owner="RecruitmentPage">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space(.)="Recruitment"]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:25.559546" elapsed="1.056027"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_VACANCIES_TAB}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.615573" elapsed="0.016695"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.633277" elapsed="0.021099"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.654376" elapsed="0.017487"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.671863" elapsed="0.275221"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:26.947084" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Vacancies']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.947084" elapsed="2.856545"/>
+</kw>
+<msg time="2026-02-18T02:11:29.803629" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:26.947084" elapsed="2.856545"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:29.803629" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:29.803629" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:29.803629" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:29.803629" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:30.104797" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:29.804630" elapsed="0.300167"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:30.104797" elapsed="0.007549"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:29.803629" elapsed="0.308717"/>
+</kw>
+<arg>${RECRUIT_VACANCIES_TAB}</arg>
+<status status="PASS" start="2026-02-18T02:11:26.633277" elapsed="3.479069"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_BTN}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:30.112346" elapsed="1.659066"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:25.559546" elapsed="6.211866"/>
+</kw>
+<kw name="Generate Unique" owner="common">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T02:11:31.772444" level="INFO">${rand} = xQBsk2</msg>
+<var>${rand}</var>
+<arg>6</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T02:11:31.772444" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-02-18T02:11:31.772444" level="INFO">${value} = QA_Automation_Vacancy_xQBsk2</msg>
+<var>${value}</var>
+<arg>SEPARATOR=_</arg>
+<arg>${prefix}</arg>
+<arg>${rand}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-02-18T02:11:31.772444" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${value}</value>
+<status status="PASS" start="2026-02-18T02:11:31.772444" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-18T02:11:31.772444" level="INFO">${vac} = QA_Automation_Vacancy_xQBsk2</msg>
+<var>${vac}</var>
+<arg>${VACANCY_NAME_PREFIX}</arg>
+<status status="PASS" start="2026-02-18T02:11:31.772444" elapsed="0.001000"/>
+</kw>
+<kw name="Create Vacancy" owner="RecruitmentPage">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:31.774443" elapsed="0.011261"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:31.785704" elapsed="0.017275"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:31.802979" elapsed="0.280937"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:32.083916" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='Add']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:32.083916" elapsed="2.174296"/>
+</kw>
+<msg time="2026-02-18T02:11:34.258212" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:32.083916" elapsed="2.174296"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:34.258212" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:34.258212" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:34.258212" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:34.258212" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:34.559392" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:34.259220" elapsed="0.300172"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:34.559392" elapsed="0.008654"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:34.259220" elapsed="0.308826"/>
+</kw>
+<arg>${ADD_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:11:31.773444" elapsed="2.794602"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:34.576769" level="INFO">${url} = https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addJobVacancy</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-02-18T02:11:34.568046" elapsed="0.008723"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>After clicking Add, URL = ${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-18T02:11:34.576769" elapsed="0.000999"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//*[self::h6 or self::h5][normalize-space(.)="Add Vacancy"]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:34.577768" elapsed="0.638936"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Add Vacancy header is visible</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.216704" elapsed="0.001000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VACANCY_NAME_INPUT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.217704" elapsed="0.025429"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.244164" elapsed="0.014866"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.261514" elapsed="0.020102"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.281616" elapsed="0.271131"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:35.553752" level="INFO">Clicking element 'xpath=//label[normalize-space(.)="Vacancy Name"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//input'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.552747" elapsed="0.077726"/>
+</kw>
+<msg time="2026-02-18T02:11:35.630473" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.552747" elapsed="0.077726"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:35.630473" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:35.630473" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:35.630473" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:35.630473" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:35.932394" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.631996" elapsed="0.300398"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.932394" elapsed="0.008073"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:35.630473" elapsed="0.309994"/>
+</kw>
+<arg>${VACANCY_NAME_INPUT}</arg>
+<status status="PASS" start="2026-02-18T02:11:35.243133" elapsed="0.697334"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:35.940467" level="INFO">Typing text 'QA_Automation_Vacancy_xQBsk2' into text field 'xpath=//label[normalize-space(.)="Vacancy Name"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//input'.</msg>
+<arg>${VACANCY_NAME_INPUT}</arg>
+<arg>${vacancy_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:35.940467" elapsed="0.089105"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.031087" elapsed="0.018608"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.050911" elapsed="0.025774"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.076685" elapsed="0.272049"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:36.348734" level="INFO">Clicking element 'xpath=//label[normalize-space(.)="Job Title"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//div[contains(@class,"oxd-select-text")]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.348734" elapsed="0.045332"/>
+</kw>
+<msg time="2026-02-18T02:11:36.394066" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.348734" elapsed="0.045332"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:36.394066" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:36.395574" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:36.394066" elapsed="0.001508"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:36.394066" elapsed="0.001508"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:36.696979" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.396584" elapsed="0.300395"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.696979" elapsed="0.005524"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:36.395574" elapsed="0.306929"/>
+</kw>
+<arg>${JOB_TITLE_DDL}</arg>
+<status status="PASS" start="2026-02-18T02:11:36.030581" elapsed="0.672922"/>
+</kw>
+<kw name="Select First Option From Open Dropdown" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${JOB_TITLE_LISTBOX}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.703503" elapsed="0.014023"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.718526" elapsed="0.013881"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.732407" elapsed="0.015114"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:36.747521" elapsed="0.272136"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:37.021160" level="INFO">Clicking element 'xpath=(//div[@role='listbox']//span)[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.021160" elapsed="0.041927"/>
+</kw>
+<msg time="2026-02-18T02:11:37.063087" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.021160" elapsed="0.041927"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:37.064085" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:37.064085" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:37.063087" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:37.063087" elapsed="0.000998"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:37.364760" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.064085" elapsed="0.300675"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.364760" elapsed="0.005005"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:37.064085" elapsed="0.305680"/>
+</kw>
+<arg>xpath=(//div[@role='listbox']//span)[1]</arg>
+<status status="PASS" start="2026-02-18T02:11:36.717526" elapsed="0.652239"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:36.703503" elapsed="0.666262"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:37.369765" level="INFO">Typing text 'First_rMR86j Last_IgfCJB' into text field 'xpath=//label[normalize-space(.)="Hiring Manager"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//input'.</msg>
+<arg>${HIRING_MANAGER_INPUT}</arg>
+<arg>${hiring_manager}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.369765" elapsed="0.068867"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@role='listbox']//span</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:37.438632" elapsed="2.288235"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:39.726867" elapsed="0.016249"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:39.743116" elapsed="0.021718"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:39.765837" elapsed="0.278774"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:40.045645" level="INFO">Clicking element 'xpath=(//div[@role='listbox']//span)[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.045645" elapsed="0.071138"/>
+</kw>
+<msg time="2026-02-18T02:11:40.116783" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.044611" elapsed="0.072172"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:40.117778" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:40.117778" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:40.116783" elapsed="0.000995"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:40.116783" elapsed="0.000995"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:40.419086" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.118779" elapsed="0.300307"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.419612" elapsed="0.009029"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:40.118779" elapsed="0.309862"/>
+</kw>
+<arg>xpath=(//div[@role='listbox']//span)[1]</arg>
+<status status="PASS" start="2026-02-18T02:11:39.726867" elapsed="0.702773"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:40.430149" level="INFO">Typing text '1' into text field 'xpath=//label[normalize-space(.)="Number of Positions"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//input'.</msg>
+<arg>${NUM_POSITIONS}</arg>
+<arg>${positions}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.429640" elapsed="0.083716"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.514359" elapsed="0.015551"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.529910" elapsed="0.020951"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.550861" elapsed="0.274789"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:40.826660" level="INFO">Clicking element 'xpath=//button[@type='submit' and normalize-space(.)='Save']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.825650" elapsed="0.062129"/>
+</kw>
+<msg time="2026-02-18T02:11:40.887779" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.825650" elapsed="0.062129"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:40.887779" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:40.888779" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:40.887779" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:40.887779" elapsed="0.001000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:41.189340" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:40.888779" elapsed="0.300561"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.189340" elapsed="0.007634"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:40.888779" elapsed="0.308195"/>
+</kw>
+<arg>${SAVE_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:11:40.513356" elapsed="0.684653"/>
+</kw>
+<arg>${vac}</arg>
+<arg>${CREATED_EMP_NAME}</arg>
+<arg>1</arg>
+<status status="PASS" start="2026-02-18T02:11:31.773444" elapsed="9.424565"/>
+</kw>
+<kw name="Validate new vacancy is created" owner="RecruitmentPage">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.198009" elapsed="0.020830"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.218839" elapsed="0.022899"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.241738" elapsed="0.271345"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:41.514091" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Candidates']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.513083" elapsed="1.217829"/>
+</kw>
+<msg time="2026-02-18T02:11:42.730912" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:41.513083" elapsed="1.217829"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:42.731923" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:42.731923" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:42.730912" elapsed="0.001011"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:42.730912" elapsed="0.001011"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:43.033224" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:42.732920" elapsed="0.300304"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:43.033224" elapsed="0.009109"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:42.731923" elapsed="0.310410"/>
+</kw>
+<arg>${RECRUIT_CANDIDATES_TAB}</arg>
+<status status="PASS" start="2026-02-18T02:11:41.198009" elapsed="1.844324"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_CANDIDATES_TAB}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:43.042333" elapsed="0.867576"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:43.910908" elapsed="0.016847"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:43.928752" elapsed="0.020170"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:43.948922" elapsed="0.281732"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:44.231735" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Vacancies']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:44.231196" elapsed="2.665736"/>
+</kw>
+<msg time="2026-02-18T02:11:46.897900" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:44.231196" elapsed="2.666704"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:46.897900" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:46.897900" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:46.897900" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:46.897900" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:47.199085" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:46.898896" elapsed="0.300189"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:47.199593" elapsed="0.008175"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:46.898896" elapsed="0.308872"/>
+</kw>
+<arg>${RECRUIT_VACANCIES_TAB}</arg>
+<status status="PASS" start="2026-02-18T02:11:43.909909" elapsed="3.297859"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_VACANCY_FILTER_DDL}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:47.208735" elapsed="0.845054"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.054793" elapsed="0.009584"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.064377" elapsed="0.017448"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.081825" elapsed="0.269375"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:48.351200" level="INFO">Clicking element 'xpath=//label[normalize-space(.)="Vacancy"]/ancestor::div[contains(@class,"oxd-input-group")]/div[2]//div[contains(@class,"oxd-select-text")]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.351200" elapsed="0.046418"/>
+</kw>
+<msg time="2026-02-18T02:11:48.397618" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.351200" elapsed="0.046418"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.397618" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.397618" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:48.397618" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:48.397618" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:48.698086" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.397618" elapsed="0.300468"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.698086" elapsed="0.005641"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:48.397618" elapsed="0.306109"/>
+</kw>
+<arg>${RECRUIT_VACANCY_FILTER_DDL}</arg>
+<status status="PASS" start="2026-02-18T02:11:48.054793" elapsed="0.648934"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_LISTBOX}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.703727" elapsed="0.012805"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-18T02:11:48.717572" level="INFO">${opt} = xpath=xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"]</msg>
+<var>${opt}</var>
+<arg>xpath=${RECRUIT_LISTBOX}//*[self::span or self::div][normalize-space(.)="${vacancy_name}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-18T02:11:48.716532" elapsed="0.001040"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:48.840686" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:48.840686" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:48.717572" elapsed="0.126490">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:48.844062" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:48.717572" elapsed="0.126490">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:49.947043" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-37.png"&gt;&lt;img src="selenium-screenshot-37.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:49.947043" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:49.846573" elapsed="0.101505">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:49.948078" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:49.846035" elapsed="0.102043">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:51.044213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:51.044213" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:50.949099" elapsed="0.095114">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:51.044213" elapsed="0.001538"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:51.045751" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:50.948596" elapsed="0.097155">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:52.156590" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:52.156590" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:52.046333" elapsed="0.111259">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:52.157592" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:52.045826" elapsed="0.112766">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:53.274001" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:53.274001" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:53.158717" elapsed="0.116791">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:53.275508" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:53.275508" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:53.276518" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:53.158717" elapsed="0.118804">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:54.393493" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-41.png"&gt;&lt;img src="selenium-screenshot-41.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:11:54.393493" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-18T02:11:54.278043" elapsed="0.116470">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<arg>${opt}</arg>
+<status status="FAIL" start="2026-02-18T02:11:54.278043" elapsed="0.116470">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<msg time="2026-02-18T02:11:54.394513" level="FAIL">Keyword 'Safe Click' failed after retrying 6 times. The last error was: InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</msg>
+<arg>6x</arg>
+<arg>1s</arg>
+<arg>Safe Click</arg>
+<arg>${opt}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="FAIL" start="2026-02-18T02:11:48.717572" elapsed="5.676941">Keyword 'Safe Click' failed after retrying 6 times. The last error was: InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Safe Click" owner="common">
+<arg>${RECRUIT_SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-02-18T02:11:54.394513" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_RESULTS_TABLE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.396051" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${vacancy_name}</arg>
+<arg>20s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:54.396051" elapsed="0.000000"/>
+</kw>
+<arg>${vac}</arg>
+<status status="FAIL" start="2026-02-18T02:11:41.198009" elapsed="13.198042">Keyword 'Safe Click' failed after retrying 6 times. The last error was: InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</kw>
+<kw name="Capture Screenshot On Failure" owner="common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:54.496750" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.396051" elapsed="0.100699"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.396051" elapsed="0.100699"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:54.396051" elapsed="0.100699"/>
+</kw>
+<tag>smoke</tag>
+<status status="FAIL" start="2026-02-18T02:11:23.183182" elapsed="31.314574">Keyword 'Safe Click' failed after retrying 6 times. The last error was: InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression xpath=//div[@role="listbox"]//*[self::span or self::div][normalize-space(.)="QA_Automation_Vacancy_xQBsk2"] because of the following error:
+TypeError: Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+  (Session info: chrome=144.0.7559.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7e532f3d5
+	0x7ff7e532f430
+	0x7ff7e50d10bd
+	0x7ff7e50d9021
+	0x7ff7e50dc144
+	0x7ff7e50dc20f
+	0x7ff7e512ba7e
+	0x7ff7e512c60c
+	0x7ff7e517d1b7
+	0x7ff7e5179d08
+	0x7ff7e511cb0c
+	0x7ff7e511da53
+	0x7ff7e560b470
+	0x7ff7e560586d
+	0x7ff7e562621a
+	0x7ff7e534b235
+	0x7ff7e5353a5c
+	0x7ff7e5338844
+	0x7ff7e53389f6
+	0x7ff7e531eb87
+	0x7ffea567e8d7
+	0x7ffea76cc40c
+</status>
+</test>
+<test id="s1-s1-t4" name="TC04 Add Candidate In Recruitment [regression]" line="45">
+<kw name="Go To Recruitment" owner="SideMenu">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.499751" elapsed="0.009988"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.509739" elapsed="0.015123"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.524862" elapsed="0.273152"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:54.799526" level="INFO">Clicking element 'xpath=//span[normalize-space(.)='Recruitment']/ancestor::a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.799526" elapsed="1.904057"/>
+</kw>
+<msg time="2026-02-18T02:11:56.704582" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:54.798014" elapsed="1.906568"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:56.704582" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:11:56.704582" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:11:56.704582" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:11:56.704582" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:11:57.005029" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:11:56.704582" elapsed="0.300447"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:11:57.005029" elapsed="0.006631"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:56.704582" elapsed="0.307078"/>
+</kw>
+<arg>${MENU_RECRUIT}</arg>
+<status status="PASS" start="2026-02-18T02:11:54.499751" elapsed="2.511909"/>
+</kw>
+<kw name="Wait Until URL Contains" owner="common">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:57.016662" level="INFO">Current location contains '/recruitment'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-02-18T02:11:57.012660" elapsed="0.004002"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Location Should Contain</arg>
+<arg>${partial}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-18T02:11:57.012660" elapsed="0.004002"/>
+</kw>
+<arg>/recruitment</arg>
+<status status="PASS" start="2026-02-18T02:11:57.011660" elapsed="0.005002"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:54.499751" elapsed="2.516911"/>
+</kw>
+<kw name="Open Candidates" owner="RecruitmentPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECRUIT_CANDIDATES_TAB}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:57.017660" elapsed="1.043851"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:11:58.061511" elapsed="0.010199"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:11:58.071710" elapsed="0.015062"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:11:58.086772" elapsed="0.277231"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:11:58.364003" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Candidates']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:11:58.364003" elapsed="2.458690"/>
+</kw>
+<msg time="2026-02-18T02:12:00.822693" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:11:58.364003" elapsed="2.458690"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:00.822693" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:00.823726" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:12:00.822693" elapsed="0.001033"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:12:00.822693" elapsed="0.001033"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:12:01.124182" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:12:00.823726" elapsed="0.300456"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.124182" elapsed="0.005546"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:00.823726" elapsed="0.306002"/>
+</kw>
+<arg>${RECRUIT_CANDIDATES_TAB}</arg>
+<status status="PASS" start="2026-02-18T02:11:58.061511" elapsed="3.068217"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_BTN}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.129728" elapsed="0.840088"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:11:57.017660" elapsed="4.952156"/>
+</kw>
+<kw name="Generate Unique" owner="common">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T02:12:01.969816" level="INFO">${rand} = mpAjuz</msg>
+<var>${rand}</var>
+<arg>6</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.969816" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-02-18T02:12:01.969816" level="INFO">${value} = candidate_mpAjuz</msg>
+<var>${value}</var>
+<arg>SEPARATOR=_</arg>
+<arg>${prefix}</arg>
+<arg>${rand}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.969816" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${value}</value>
+<status status="PASS" start="2026-02-18T02:12:01.969816" elapsed="0.000000"/>
+</return>
+<msg time="2026-02-18T02:12:01.971083" level="INFO">${email_user} = candidate_mpAjuz</msg>
+<var>${email_user}</var>
+<arg>candidate</arg>
+<status status="PASS" start="2026-02-18T02:12:01.969816" elapsed="0.001267"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-02-18T02:12:01.971083" level="INFO">${email} = candidate_mpAjuz@example.com</msg>
+<var>${email}</var>
+<arg>SEPARATOR=@</arg>
+<arg>${email_user}</arg>
+<arg>${CAND_EMAIL_DOMAIN}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.971083" elapsed="0.000000"/>
+</kw>
+<kw name="Add Candidate" owner="RecruitmentPage">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.972089" elapsed="0.010876"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.982965" elapsed="0.014939"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:12:01.997904" elapsed="0.265053"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:02.262957" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='Add']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:02.262957" elapsed="2.648977"/>
+</kw>
+<msg time="2026-02-18T02:12:04.911934" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:12:02.262957" elapsed="2.648977"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:04.911934" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:04.911934" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:12:04.911934" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:12:04.911934" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:12:05.212260" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:12:04.911934" elapsed="0.300326"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:12:05.212260" elapsed="0.006522"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:04.911934" elapsed="0.306848"/>
+</kw>
+<arg>${ADD_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:12:01.972089" elapsed="3.247693"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAND_FIRSTNAME}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:05.219782" elapsed="0.628056"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:05.847838" level="INFO">Typing text 'CandidateFirst' into text field 'xpath=//input[@name='firstName']'.</msg>
+<arg>${CAND_FIRSTNAME}</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:05.847838" elapsed="0.067954"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:05.916799" level="INFO">Typing text 'CandidateLast' into text field 'xpath=//input[@name='lastName']'.</msg>
+<arg>${CAND_LASTNAME}</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:05.915792" elapsed="0.064658"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:05.980956" level="INFO">Typing text 'candidate_mpAjuz@example.com' into text field 'xpath=//label[normalize-space(.)='Email']/parent::div/following::div//input'.</msg>
+<arg>${CAND_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:05.980450" elapsed="0.080016"/>
+</kw>
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.061477" elapsed="0.012095"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.073572" elapsed="0.023147"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.096719" elapsed="0.276307"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:06.373026" level="INFO">Clicking element 'xpath=//button[@type='submit' and normalize-space(.)='Save']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.373026" elapsed="0.044722"/>
+</kw>
+<msg time="2026-02-18T02:12:06.417748" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.373026" elapsed="0.044722"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:06.417748" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:06.417748" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:12:06.417748" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:12:06.417748" elapsed="0.000998"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:12:06.719016" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.418746" elapsed="0.300270"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.719575" elapsed="0.006357"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:06.418746" elapsed="0.307186"/>
+</kw>
+<arg>${SAVE_BTN}</arg>
+<status status="PASS" start="2026-02-18T02:12:06.061477" elapsed="0.664455"/>
+</kw>
+<kw name="Wait For Toast Success" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TOAST}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:06.726940" elapsed="1.069303"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TOAST_SUCCESS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:07.796243" elapsed="0.009621"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:06.725932" elapsed="1.079932"/>
+</kw>
+<arg>CandidateFirst</arg>
+<arg>CandidateLast</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2026-02-18T02:12:01.971083" elapsed="5.834781"/>
+</kw>
+<kw name="Capture Screenshot On Failure" owner="common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-18T02:12:07.806897" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:07.805864" elapsed="0.001033"/>
+</kw>
+<tag>regression</tag>
+<status status="PASS" start="2026-02-18T02:11:54.498715" elapsed="13.308182"/>
+</test>
+<test id="s1-s1-t5" name="TC05 Create System User And Login [smoke]" line="53">
+<kw name="Go To Admin" owner="SideMenu">
+<kw name="Safe Click" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-18T02:12:07.807864" elapsed="0.012752"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-18T02:12:07.821992" elapsed="0.015643"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-18T02:12:07.837635" elapsed="0.273783"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:08.111418" level="INFO">Clicking element 'xpath=//span[normalize-space(.)='Admin']/ancestor::a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T02:12:08.111418" elapsed="3.736323"/>
+</kw>
+<msg time="2026-02-18T02:12:11.847741" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-18T02:12:08.111418" elapsed="3.736323"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${el}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:11.847741" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${el}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:11.847741" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-18T02:12:11.847741" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-02-18T02:12:11.847741" elapsed="0.000000"/>
+</if>
+<kw name="Wait For App Idle" owner="common">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T02:12:12.149080" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T02:12:11.848743" elapsed="0.300337"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-18T02:12:12.149080" elapsed="0.005682"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:11.847741" elapsed="0.307021"/>
+</kw>
+<arg>${MENU_ADMIN}</arg>
+<status status="PASS" start="2026-02-18T02:12:07.807864" elapsed="4.346898"/>
+</kw>
+<kw name="Wait Until URL Contains" owner="common">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:12.252647" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-43.png"&gt;&lt;img src="selenium-screenshot-43.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:12.252647" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:12.154762" elapsed="0.097885">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:13.354436" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-44.png"&gt;&lt;img src="selenium-screenshot-44.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:13.354436" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:13.252935" elapsed="0.101501">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:14.477460" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-45.png"&gt;&lt;img src="selenium-screenshot-45.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:14.477460" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:14.354530" elapsed="0.123930">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:15.600447" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-46.png"&gt;&lt;img src="selenium-screenshot-46.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:15.600952" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:15.478707" elapsed="0.122245">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:16.743738" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-47.png"&gt;&lt;img src="selenium-screenshot-47.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:16.743738" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:16.601160" elapsed="0.143609">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:17.887542" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-48.png"&gt;&lt;img src="selenium-screenshot-48.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:17.887542" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:17.745307" elapsed="0.143235">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:19.032459" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:19.032459" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:18.888697" elapsed="0.143762">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:20.173420" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:20.173420" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:20.032969" elapsed="0.141451">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:21.313347" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:21.314347" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:21.174668" elapsed="0.139679">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:22.464779" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:22.464779" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:22.314818" elapsed="0.150996">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:23.617497" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:23.617497" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:23.466108" elapsed="0.152419">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:24.755356" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:24.755356" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:24.618907" elapsed="0.137482">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:25.909778" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:25.909778" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:25.756590" elapsed="0.153188">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:27.059704" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-56.png"&gt;&lt;img src="selenium-screenshot-56.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:27.060712" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:26.910216" elapsed="0.150496">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:28.234208" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:28.234208" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:28.060923" elapsed="0.173285">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:29.374196" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-58.png"&gt;&lt;img src="selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:29.374196" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:29.236284" elapsed="0.139451">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:30.526567" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-59.png"&gt;&lt;img src="selenium-screenshot-59.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:30.526567" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:30.375968" elapsed="0.150599">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:31.664104" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-60.png"&gt;&lt;img src="selenium-screenshot-60.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:31.664104" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:31.526922" elapsed="0.137182">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:32.763883" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-61.png"&gt;&lt;img src="selenium-screenshot-61.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-18T02:12:32.763883" level="FAIL">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${partial}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2026-02-18T02:12:32.666131" elapsed="0.097752">Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<msg time="2026-02-18T02:12:32.763883" level="FAIL">Keyword 'Location Should Contain' failed after retrying for 20 seconds. The last error was: Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</msg>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Location Should Contain</arg>
+<arg>${partial}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="FAIL" start="2026-02-18T02:12:12.154762" elapsed="20.610627">Keyword 'Location Should Contain' failed after retrying for 20 seconds. The last error was: Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<arg>/admin</arg>
+<status status="FAIL" start="2026-02-18T02:12:12.154762" elapsed="20.610627">Keyword 'Location Should Contain' failed after retrying for 20 seconds. The last error was: Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<status status="FAIL" start="2026-02-18T02:12:07.807864" elapsed="24.957525">Keyword 'Location Should Contain' failed after retrying for 20 seconds. The last error was: Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</kw>
+<kw name="Generate Unique" owner="common">
+<var>${new_user}</var>
+<arg>qa_user</arg>
+<status status="NOT RUN" start="2026-02-18T02:12:32.765389" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${new_pass}</var>
+<arg>123@Mm@567</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-18T02:12:32.766398" elapsed="0.000000"/>
+</kw>
+<kw name="Create System User (ESS)" owner="AdminPage">
+<arg>${CREATED_EMP_NAME}</arg>
+<arg>${new_user}</arg>
+<arg>${new_pass}</arg>
+<status status="NOT RUN" start="2026-02-18T02:12:32.766398" elapsed="0.000000"/>
+</kw>
+<kw name="Logout" owner="LoginPage">
+<status status="NOT RUN" start="2026-02-18T02:12:32.766398" elapsed="0.000000"/>
+</kw>
+<kw name="Login As" owner="LoginPage">
+<arg>${new_user}</arg>
+<arg>${new_pass}</arg>
+<status status="NOT RUN" start="2026-02-18T02:12:32.766398" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Screenshot On Failure" owner="common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-02-18T02:12:32.855755" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-02-18T02:12:32.767395" elapsed="0.088360"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-18T02:12:32.767395" elapsed="0.088360"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:32.767395" elapsed="0.089353"/>
+</kw>
+<tag>smoke</tag>
+<status status="FAIL" start="2026-02-18T02:12:07.807864" elapsed="25.048884">Keyword 'Location Should Contain' failed after retrying for 20 seconds. The last error was: Location should have contained '/admin' but it was 'https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/82'.</status>
+</test>
+<kw name="Close App" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-18T02:12:32.857719" elapsed="2.204628"/>
+</kw>
+<status status="PASS" start="2026-02-18T02:12:32.857719" elapsed="2.205675"/>
+</kw>
+<status status="FAIL" start="2026-02-18T02:10:36.577078" elapsed="118.486316"/>
+</suite>
+<status status="FAIL" start="2026-02-18T02:10:36.549165" elapsed="118.517304"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="2" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="3" fail="2" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="3" fail="2" skip="0" id="s1-s1" name="Orangehrm Assignment">Tests.Orangehrm Assignment</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

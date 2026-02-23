@@ -84,7 +84,8 @@ python -m robot -d results -v BROWSER:firefox -v HEADLESS:True tests
 ## Run Smoke Test
 you can smoke test on chrome using this
 ```powershell
-python -m robot -d results -v BROWSER:chrome tests
+python -m robot -d results -i smoke -v BROWSER:chrome -v HEADLESS:True tests
+
 ```
 
 ## Reports
